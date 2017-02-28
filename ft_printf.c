@@ -24,21 +24,21 @@ void		fu_inti_fu(void)
 
 	i = -1;
 	while (++i < 128)
-		funcs_g[i] = &flag_und;
-	funcs_g['i'] = &flag_i;
-	funcs_g['d'] = &flag_i;
-	funcs_g['D'] = &flag_dbig;
-	funcs_g['c'] = &flag_char;
-	funcs_g['C'] = &flag_char;
-	funcs_g['s'] = &flag_s;
-	funcs_g['S'] = &flag_s;
-	funcs_g['u'] = &flag_u;
-	funcs_g['U'] = &flag_ubig;
-	funcs_g['x'] = &flag_x;
-	funcs_g['X'] = &flag_x;
-	funcs_g['O'] = &flag_obig;
-	funcs_g['o'] = &flag_o;
-	funcs_g['p'] = &flag_p;
+		g_funcs[i] = &flag_und;
+	g_funcs['i'] = &flag_i;
+	g_funcs['d'] = &flag_i;
+	g_funcs['D'] = &flag_dbig;
+	g_funcs['c'] = &flag_char;
+	g_funcs['C'] = &flag_char;
+	g_funcs['s'] = &flag_s;
+	g_funcs['S'] = &flag_s;
+	g_funcs['u'] = &flag_u;
+	g_funcs['U'] = &flag_ubig;
+	g_funcs['x'] = &flag_x;
+	g_funcs['X'] = &flag_x;
+	g_funcs['O'] = &flag_obig;
+	g_funcs['o'] = &flag_o;
+	g_funcs['p'] = &flag_p;
 }
 
 int			ft_printf(char *format, ...)

@@ -16,8 +16,6 @@
 # define FL f->flag
 # define P && format[i] ==
 # define IF '0'P'+'P' 'P'-'P'#'
-# include "libft.h"
-# include <stdio.h>
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -31,7 +29,11 @@ typedef struct	s_flags
 	char		type;
 }				t_flags;
 
-int				(*funcs_g[128])(va_list, t_flags *);
+int				(*g_funcs[127])(va_list arg, struct s_flags *f);
+void			*ft_memset(void *b, int c, size_t len);
+int				ft_atoi(char const *str);
+size_t			ft_strlen(const char *s);
+char			*ft_strchr(const char *s, int c);
 void			ft_bzero(void *s, size_t n);
 void			ft_putnbr(int nb);
 char			*ft_strchr(const char *s, int c);

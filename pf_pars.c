@@ -72,7 +72,7 @@ int		ft_pars(char *format, int *j, va_list *arg)
 			flags.modifiers = ft_modifiers(format, &i, flags.modifiers);
 		if (!ft_strchr("0123456789+. -#lLhzj", format[i]) && (*j += i + 1)
 			&& (flags.type = format[i]))
-			return (funcs_g[F](*arg, &flags));
+			return (g_funcs[F](*arg, &flags));
 	}
 	return (0);
 }

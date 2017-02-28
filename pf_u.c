@@ -49,8 +49,8 @@ int		flag_u(va_list arg, t_flags *f)
 	if (!f->prec && !var)
 		res[ft_strlen(res) - 1] = f->width > 0 ? ' ' : 0;
 	len = ft_strlen(res);
-	f->flag[3] != 0 ? ft_putstr(res) : fu_width(&i, f->width - len, ' ');
-	f->flag[3] == 0 ? ft_putstr(res) : fu_width(&i, f->width - len, ' ');
+	f->flag[3] != 0 ? write(1, res, len) : fu_width(&i, f->width - len, ' ');
+	f->flag[3] == 0 ? write(1, res, len) : fu_width(&i, f->width - len, ' ');
 	free(res);
 	return (len + i);
 }
