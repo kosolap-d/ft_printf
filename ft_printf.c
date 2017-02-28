@@ -12,50 +12,49 @@
 
 #include "ft_printf.h"
 
-void	fu_width(int *i, int len, char c)
+void		fu_width(int *i, int len, char c)
 {
 	while ((*i += 1) < len)
 		write(1, &c, 1);
 }
 
-void	fu_inti(int (*funcs[128])(va_list, struct s_flags *))
+void		fu_inti_fu(void)
 {
 	int		i;
 
 	i = -1;
 	while (++i < 128)
-		funcs[i] = &flag_und;
-	funcs['i'] = &flag_i;
-	funcs['d'] = &flag_i;
-	funcs['D'] = &flag_dbig;
-	funcs['c'] = &flag_char;
-	funcs['C'] = &flag_char;
-	funcs['s'] = &flag_s;
-	funcs['S'] = &flag_s;
-	funcs['u'] = &flag_u;
-	funcs['U'] = &flag_ubig;
-	funcs['x'] = &flag_x;
-	funcs['X'] = &flag_x;
-	funcs['O'] = &flag_obig;
-	funcs['o'] = &flag_o;
-	funcs['p'] = &flag_p;
+		funcs_g[i] = &flag_und;
+	funcs_g['i'] = &flag_i;
+	funcs_g['d'] = &flag_i;
+	funcs_g['D'] = &flag_dbig;
+	funcs_g['c'] = &flag_char;
+	funcs_g['C'] = &flag_char;
+	funcs_g['s'] = &flag_s;
+	funcs_g['S'] = &flag_s;
+	funcs_g['u'] = &flag_u;
+	funcs_g['U'] = &flag_ubig;
+	funcs_g['x'] = &flag_x;
+	funcs_g['X'] = &flag_x;
+	funcs_g['O'] = &flag_obig;
+	funcs_g['o'] = &flag_o;
+	funcs_g['p'] = &flag_p;
 }
 
-int		ft_printf(char *format, ...)
+int			ft_printf(char *format, ...)
 {
 	va_list		arg;
 	int			i;
 	int			res;
-	int			(*funcs[128])(va_list, struct s_flags *);
 
+	fu_inti_fu();
 	i = -1;
-	fu_inti(funcs);
 	res = 0;
 	va_start(arg, format);
 	while (format[++i])
 	{
 		if (format[i] == '%')
-			res += ft_pars((format + (i += 1)), &i, &arg, funcs);
+			res += ft_pars((format + (i += 1)), &i, &arg);
 		if (!format[i])
 			break ;
 		if (format[i] == '%')

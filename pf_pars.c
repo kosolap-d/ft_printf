@@ -49,8 +49,7 @@ int		init_flag(t_flags *flags)
 	return (0);
 }
 
-int		ft_pars(char *format, int *j, va_list *arg,
-int (*funcs[128])(va_list, struct s_flags *))
+int		ft_pars(char *format, int *j, va_list *arg)
 {
 	t_flags	flags;
 	int		i;
@@ -73,7 +72,7 @@ int (*funcs[128])(va_list, struct s_flags *))
 			flags.modifiers = ft_modifiers(format, &i, flags.modifiers);
 		if (!ft_strchr("0123456789+. -#lLhzj", format[i]) && (*j += i + 1)
 			&& (flags.type = format[i]))
-			return (funcs[F](*arg, &flags));
+			return (funcs_g[F](*arg, &flags));
 	}
 	return (0);
 }

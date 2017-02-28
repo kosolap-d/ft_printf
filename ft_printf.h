@@ -31,6 +31,7 @@ typedef struct	s_flags
 	char		type;
 }				t_flags;
 
+int				(*funcs_g[128])(va_list, t_flags *);
 void			ft_bzero(void *s, size_t n);
 void			ft_putnbr(int nb);
 char			*ft_strchr(const char *s, int c);
@@ -38,8 +39,7 @@ void			*ft_memset(void *b, int c, size_t len);
 int				count_nbr(long long int n);
 char			*pf_itoa(long long int n, int l, int ch);
 char			*pf_itoa_u(size_t num, int len, int ch);
-int				ft_pars(char *format, int *j, va_list *arg,
-int (*funcs[128])(va_list, struct s_flags *));
+int				ft_pars(char *format, int *j, va_list *arg);
 void			fu_width(int *i, int len, char c);
 int				flag_i(va_list arg, t_flags *f);
 int				flag_dbig(va_list arg, t_flags *f);
